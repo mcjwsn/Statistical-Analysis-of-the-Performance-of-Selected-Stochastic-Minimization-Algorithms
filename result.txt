@@ -1,0 +1,27 @@
+# Wyniki oczekiwane dla funkcji Schwefela i Griewanka
+
+## Funkcja Schwefela
+Wymiary: 2
+Globalne minimum: -837.9658
+Współrzędne: [420.9687, 420.9687]
+
+Wymiary: 10
+Globalne minimum: -4189.829
+Współrzędne: [420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687]
+
+Wymiary: 20
+Globalne minimum: -8379.658
+Współrzędne: [420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687, 420.9687]
+
+## Funkcja Griewanka
+Wymiary: 2
+Globalne minimum: 0
+Współrzędne: [0, 0]
+
+Wymiary: 10
+Globalne minimum: 0
+Współrzędne: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+Wymiary: 20
+Globalne minimum: 0
+Współrzędne: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
