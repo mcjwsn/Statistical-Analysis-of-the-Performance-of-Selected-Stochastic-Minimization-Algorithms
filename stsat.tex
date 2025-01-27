@@ -1,0 +1,164 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{xcolor}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Mój pierwszy dokument R Markdown},
+  pdfauthor={Twoje Imię},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Mój pierwszy dokument R Markdown}
+\author{Twoje Imię}
+\date{2023-10-10}
+
+\begin{document}
+\maketitle
+
+\section{Cel projektu}\label{cel-projektu}
+
+Projekt polega na prostym opracowaniu statystycznym wyników porównania
+działania wybranych algorytmów minimalizacji stochastycznej.
+Zdecydowaliśmy się do porównania użyć następujących algorytmów:
+
+\begin{itemize}
+\tightlist
+\item
+  \textcolor{green}{Poszukiwanie przypadkowe (Pure Random Search, PRS)}
+\item
+  \textcolor{red}{Metoda wielokrotnego startu (multi-start, MS)}
+\end{itemize}
+
+\subsection{Opis algorytmów}\label{opis-algorytmuxf3w}
+
+\subsubsection{Poszukiwanie przypadkowe (Pure Random Search,
+PRS)}\label{poszukiwanie-przypadkowe-pure-random-search-prs}
+
+Algorytm PRS polega na losowym przeszukiwaniu przestrzeni rozwiązań, w
+której minimalizowana funkcja jest zdefiniowana. Działa w następujący
+sposób:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Losowanie punktów}: Losujemy kolejne punkty w przestrzeni
+  poszukiwań z rozkładu jednostajnego. Jeżeli dziedzina poszukiwań jest
+  kostką wielowymiarową, to każdą współrzędną punktu losujemy z
+  odpowiedniego jednowymiarowego rozkładu jednostajnego.\\
+  Na przykład, jeśli dziedzina poszukiwań to kostka trójwymiarowa
+  \([0,1] \times [-2,2] \times [100,1000]\), losowanie współrzędnych
+  wygląda następująco:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    pierwsza współrzędna: \(U(0,1)\),
+  \item
+    druga współrzędna: \(U(-2,2)\),
+  \item
+    trzecia współrzędna: \(U(100,1000)\).
+  \end{itemize}
+\item
+  \textbf{Porównanie wartości funkcji}: Wartość funkcji w każdym
+  wylosowanym punkcie porównujemy z aktualnie zapamiętanym minimum.
+  Jeśli wartość funkcji w nowym punkcie jest mniejsza, zapamiętujemy ten
+  punkt jako nowe minimum.
+\item
+  \textbf{Wynik}: Wartość funkcji w ostatnim zapamiętanym punkcie
+  stanowi wynik algorytmu.
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{Metoda wielokrotnego startu (Multi-Start,
+MS)}\label{metoda-wielokrotnego-startu-multi-start-ms}
+
+Algorytm MS łączy losowe przeszukiwanie przestrzeni z metodami
+optymalizacji lokalnej. Jego kroki są następujące:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Losowanie punktów}: Podobnie jak w PRS, losujemy zadany zbiór
+  punktów startowych z rozkładu jednostajnego w przestrzeni poszukiwań.
+\item
+  \textbf{Uruchomienie optymalizacji lokalnej}: Dla każdego wylosowanego
+  punktu startowego uruchamiana jest metoda optymalizacji lokalnej (np.
+  metoda L-BFGS-B zaimplementowana w funkcji \texttt{optim()} w R).
+\item
+  \textbf{Porównanie wyników}: Dla każdego startu zapisujemy wartość
+  funkcji w zwróconym punkcie lokalnego minimum. Wynikiem algorytmu jest
+  minimalna wartość funkcji spośród wszystkich punktów końcowych.
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Oba algorytmy można stosować w zadanej dziedzinie, różnią się jednak
+podejściem. PRS polega na losowym próbkowaniu całej przestrzeni,
+natomiast MS wykorzystuje optymalizację lokalną, aby dokładniej zbadać
+okolice losowo wybranych punktów startowych.
+
+Do porównania należy wybrać dwie z funkcji dostępnych w pakiecie
+\texttt{smoof}, które są skalarne (single-objective) i mają wersje dla
+różnej liczby wymiarów (akceptują parametr \texttt{dimensions}).
+
+\end{document}
