@@ -2,11 +2,12 @@
 title: "Porównanie działania wybranych algorytmów minimalizacji stochastycznej"
 author: "Kacper Feliks, Maciej Wiśniewski"
 date: "28-01-2025"
-output: pdf_document
-header-includes:
-  \usepackage{xcolor}
-  \definecolor{lightyellow}{rgb}{30.0, 0.0, 0.8}
+output:
+  pdf_document: default
+  word_document: default
+header-includes: \usepackage{xcolor} \definecolor{lightyellow}{rgb}{30.0, 0.0, 0.8}
   \definecolor{green}{rgb}{0, 0.8, 0}
+  \usepackage{caption}
 ---
 
 ## Cel projektu
@@ -48,8 +49,6 @@ Algorytm \textcolor{green}{MS} łączy losowe przeszukiwanie przestrzeni z metod
 
 ------------------------------------------------------------------------
 
-Oba algorytmy można stosować w zadanej dziedzinie, różnią się jednak podejściem. \textcolor{lightyellow}{PRS} polega na losowym próbkowaniu całej przestrzeni, natomiast \textcolor{green}{MS} wykorzystuje optymalizację lokalną, aby dokładniej zbadać okolice losowo wybranych punktów startowych.
-
 Do porównania należało wybrać dwie z funkcji dostępnych w pakiecie `smoof`, które są skalarne (single-objective) i mają wersje dla różnej liczby wymiarów (akceptują parametr `dimensions`).
 
 W celu sprawdzenia dostępnych algorytmów wykonaliśmy następujący algorytm, który znajdywał dostępne funckje o wymaganych parametrach:
@@ -73,7 +72,54 @@ print(scalar_dimensional_functions)
 -   \textcolor{blue}{Schwefel}
 -   \textcolor{purple}{Griewank}
 
-Nasz wybór padł dokładnie na te funkcje ze względu na nich odmienność, trudność w optymalizacji oraz niebanalną impelmentację.
+Nasz wybór padł dokładnie na te funkcję ze względu na nich odmienność, trudność w optymalizacji oraz niebanalną impelmentację.
+
+\newpage
+
+### \textcolor{blue}{Funkcja Schwefela}
+
+\textcolor{blue}{Funckaj Schwefela} jest złożoną funkcją, posiadającą wiele minimów lokalnych.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{schwef2.png}
+    \caption*{Wzór \textcolor{blue}{funkcji Schwefela}}
+\end{figure}
+
+gdzie przez $d$ rozumiemy ilość wymiarów. Funkcja jest zazwyczaj definiowa na hiperszceścianach $x_i \in [-500, 500]$, dla każdego $i = 1, \dots, d$.
+
+Minimum globalne $f(\mathbf{x^*}) = 0, \quad \text{dla } \mathbf{x^*} = (420.9687, \dots, 420.9687)$
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{schwefel1.png}
+    \caption*{Reprezentacja funckji w przestrzeni dwuwymiarowej}
+\end{figure}
+
+\newpage
+
+### \textcolor{purple}{Funkcja Griewanka}
+
+\textcolor{purple}{Funkcja Griewanka} ma wiele szeroko rozpowszechnionych minimów lokalnych, które są regularnie dystrybuowane.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{griewank2.png}
+    \caption*{Wzór \textcolor{purple}{funkcji Griewanka}}
+\end{figure}
+
+gdzie przez $d$ rozumiemy ilość wymiarów. Funkcja jest zazwyczaj definiowa na hiperszceścianach $x_i \in [-600, 600]$, dla każdego $i = 1, \dots, d$.
+
+Minimum globalne $f(\mathbf{x^*}) = 0, \quad \text{ dla } \mathbf{x^*} = (0, \dots, 0)$
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{griewank1.png}
+    \caption*{Wizualizacja\textcolor{purple}{funkcji Griewanka} }
+\end{figure}
+
+\newpage
 
 ## Specyfikacja sprzętu
 
@@ -471,7 +517,6 @@ text(1:2, par("usr")[3] - 335.5,
      xpd = TRUE)
 ```
 
-
 \newpage
 
 ## T testy
@@ -515,7 +560,9 @@ t.test(x = S10PRS, y = S10MS, paired = TRUE)
 ```{r echo=FALSE}
 t.test(x = S20PRS, y = S20MS, paired = TRUE)
 ```
+
 \newpage
+
 ## Wnioski końcowe:
 
 ### Wpływ wymiarowości:
@@ -526,10 +573,3 @@ Wraz ze wzrostem liczby wymiarów, różnica między algorytmami staje się cora
 
 \textcolor{blue}{Funkcja Schwefela} wykazuje większe różnice między algorytmami niż funkcja \textcolor{purple}{Griewanka}. Dla \textcolor{purple}{funkcji Griewanka} w 2D nie zaobserwowano istotnej różnicy między algorytmami.
 
-### Efektywność algorytmów:
-
-\textcolor{green}{MS} konsekwentnie osiąga lepsze wyniki niż \textcolor{lightyellow}{PRS} dla wszystkich przypadków (z wyjątkiem G2D). Różnice są szczególnie widoczne w wyższych wymiarach. \textcolor{green}{MS} wydaje się być znacznie bardziej odpowiedni dla problemów wielowymiarowych.
-
-### Rekomendacje:
-
-Dla problemów 2D: można stosować oba algorytmy (szczególnie dla \textcolor{purple}{funkcji Griewanka}). Dla problemów wielowymiarowych: zdecydowanie zalecane jest użycie \textcolor{green}{MS} W przypadku \textcolor{blue}{funkcji Schwefela}: \textcolor{green}{MS} powinien być preferowanym wyborem niezależnie od wymiarowości.
