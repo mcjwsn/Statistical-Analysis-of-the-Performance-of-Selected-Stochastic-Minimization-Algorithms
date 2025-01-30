@@ -5,9 +5,10 @@ date: "28-01-2025"
 output:
   pdf_document: default
   word_document: default
+  html_document:
+    df_print: paged
 header-includes: \usepackage{xcolor} \definecolor{lightyellow}{rgb}{30.0, 0.0, 0.8}
-  \definecolor{green}{rgb}{0, 0.8, 0}
-  \usepackage{caption}
+  \definecolor{green}{rgb}{0, 0.8, 0} \usepackage{caption}
 ---
 
 ## Cel projektu
@@ -78,13 +79,9 @@ Nasz wybór padł dokładnie na te funkcję ze względu na nich odmienność, tr
 
 ### \textcolor{blue}{Funkcja Schwefela}
 
-\textcolor{blue}{Funckaj Schwefela} jest złożoną funkcją, posiadającą wiele minimów lokalnych.
+\textcolor{blue}{Funckaj Schwefela} jest złożoną funkcją, posiadającą wiele minimów lokalnych. Wzór funkcji:
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\textwidth]{schwef2.png}
-    \caption*{Wzór \textcolor{blue}{funkcji Schwefela}}
-\end{figure}
+\[f(\mathbf{x}) = \sum_{i=1}^{n} -x_i \sin \left( \sqrt{|x_i|} \right)\]
 
 gdzie przez $d$ rozumiemy ilość wymiarów. Funkcja jest zazwyczaj definiowa na hiperszceścianach $x_i \in [-500, 500]$, dla każdego $i = 1, \dots, d$.
 
@@ -92,31 +89,24 @@ Minimum globalne $f(\mathbf{x^*}) = 0, \quad \text{dla } \mathbf{x^*} = (420.968
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{schwefel1.png}
-    \caption*{Reprezentacja funckji w przestrzeni dwuwymiarowej}
+    \includegraphics[width=0.5\textwidth, height=0.5\textheight]{schwefel1.png}
+    \caption*{Reprezentacja \textcolor{blue}{funkcji Schwefela} w przestrzeni 3D}
 \end{figure}
-
-\newpage
 
 ### \textcolor{purple}{Funkcja Griewanka}
 
-\textcolor{purple}{Funkcja Griewanka} ma wiele szeroko rozpowszechnionych minimów lokalnych, które są regularnie dystrybuowane.
+\textcolor{purple}{Funkcja Griewanka} ma wiele szeroko rozpowszechnionych minimów lokalnych, które są regularnie dystrybuowane. Wzór funkcji:
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\textwidth]{griewank2.png}
-    \caption*{Wzór \textcolor{purple}{funkcji Griewanka}}
-\end{figure}
+\[f(\mathbf{x}) = \sum_{i=1}^{d} \frac{x_i^2}{4000} - \prod_{i=1}^{d} \cos \left( \frac{x_i}{\sqrt{i}} \right) + 1\]
 
 gdzie przez $d$ rozumiemy ilość wymiarów. Funkcja jest zazwyczaj definiowa na hiperszceścianach $x_i \in [-600, 600]$, dla każdego $i = 1, \dots, d$.
 
 Minimum globalne $f(\mathbf{x^*}) = 0, \quad \text{ dla } \mathbf{x^*} = (0, \dots, 0)$
 
-
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{griewank1.png}
-    \caption*{Wizualizacja\textcolor{purple}{funkcji Griewanka} }
+    \includegraphics[width=0.5\textwidth, height=0.5\textheight]{griewank1.png}
+    \caption*{Wizualizacja \textcolor{purple}{funkcji Griewanka} w 3D}
 \end{figure}
 
 \newpage
@@ -181,6 +171,8 @@ S20PRS <- as.vector(read.csv("./data/schwefel20Dprs.csv"))$x
 -   Mediana: `r median(G10MS)`
 -   Dolny kwartyl: `r quantile(G10MS, 0.25)`
 -   Górny kwartyl: `r quantile(G10MS, 0.75)`
+
+\newpage
 
 ### \textcolor{lightyellow}{PRS}
 
@@ -309,7 +301,8 @@ title(main = "Funkcja Griewanka 2D", col.main = rgb(0.75,0.1,0.3), line = 2)
 title(main = "MS", col.main = rgb(0,0.8,0), line = 1)
 ```
 
-```{r echo=FALSE}
+```{r, echo=FALSE}
+
 hist(G2PRS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      ylim = c(0,30), xlim = c(0,2),col=rgb(0.75,0.1,0.3),
@@ -318,9 +311,6 @@ hist(G2PRS, main="",
      )
 title(main = "Funkcja Griewanka 2D", col.main = rgb(0.75,0.1,0.3), line = 2)
 title(main = "PRS", col.main = rgb(1,0,0.83), line = 1)
-```
-
-```{r echo=FALSE}
 hist(G10MS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      xlim = c(0, 2.5e-10),  
@@ -342,9 +332,6 @@ hist(G10PRS, main="",
      )
 title(main = "Funkcja Griewanka 10D", col.main = rgb(0.75,0.1,0.3), line = 2)
 title(main = "PRS", col.main = rgb(1,0,0.83), line = 1)
-```
-
-```{r echo=FALSE}
 hist(G20MS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      xlim = c(0, 2e-10),  
@@ -356,6 +343,7 @@ title(main = "Funkcja Griewanka 20D", col.main = rgb(0.75,0.1,0.3), line = 2)
 title(main = "MS", col.main = rgb(0,0.8,0), line = 1)
 ```
 
+
 ```{r echo=FALSE}
 hist(G20PRS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
@@ -366,9 +354,6 @@ hist(G20PRS, main="",
      )
 title(main = "Funkcja Griewanka 20D", col.main = rgb(0.75,0.1,0.3), line = 2)
 title(main = "PRS", col.main = rgb(1,0,0.83), line = 1)
-```
-
-```{r echo=FALSE}
 hist(S2MS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      xlim = c(-840,-700), ylim = c(0,103),col="blue",
@@ -389,9 +374,6 @@ hist(S2PRS, main="",
      )
 title(main = "Funkcja Schwefela 2D", col.main = "blue", line = 2)
 title(main = "PRS", col.main = rgb(1,0,0.83), line = 1)
-```
-
-```{r echo=FALSE}
 hist(S10MS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      ylim = c(0,26), xlim = c(-3800,-2800),col="blue",
@@ -411,9 +393,6 @@ hist(S10PRS, main="",
      )
 title(main = "Funkcja Schwefela 10D", col.main = "blue", line = 2)
 title(main = "PRS", col.main = rgb(1,0,0.83), line = 1)
-```
-
-```{r echo=FALSE}
 hist(S20MS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      xlim = c(-6800,-5400),ylim = c(0,31),col="blue",
@@ -572,4 +551,3 @@ Wraz ze wzrostem liczby wymiarów, różnica między algorytmami staje się cora
 ### Porównanie funkcji:
 
 \textcolor{blue}{Funkcja Schwefela} wykazuje większe różnice między algorytmami niż funkcja \textcolor{purple}{Griewanka}. Dla \textcolor{purple}{funkcji Griewanka} w 2D nie zaobserwowano istotnej różnicy między algorytmami.
-
