@@ -207,133 +207,191 @@ S20PRS <- as.vector(read.csv("./data/schwefel20Dprs.csv"))$x
 | Górny kwartyl (75%)     | `r quantile(S20MS, 0.75)`   | `r quantile(S20PRS, 0.75)`  |`
 
 ```{r echo=FALSE}
+png("G2MS.png", width = 700, height = 400)
+
 hist(G2MS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      ylim = c(0,62), xlim = c(0,5), col=rgb(0.75,0.1,0.3),
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(0,0.8,0))
+                        col = rgb(0,0.8,0), border = NA)
      )
+
 title(main = "Funkcja Griewanka 2D", col.main = rgb(0.75,0.1,0.3), line = 2)
 title(main = "MS", col.main = rgb(0,0.8,0), line = 1)
 
-
-
+invisible(dev.off())
+knitr::include_graphics("G2MS.png")
 ```
 
 ```{r, echo=FALSE}
-
-# Pierwszy histogram
+png("G2PRS.png", width = 700, height = 400)
 hist(G2PRS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      ylim = c(0,30), xlim = c(0,2), col=rgb(0.75,0.1,0.3),
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(1,0,0.83))
+                        col = rgb(1,0,0.83), border = NA)
 )
 title(main = "Funkcja Griewanka 2D", col.main = rgb(0.75,0.1,0.3), line = 2)
 title(main = "PRS", col.main = rgb(1,0,0.83), line = 1)
 
-# Drugi histogram
+invisible(dev.off())
+knitr::include_graphics("G2PRS.png")
+```
+
+```{r,echo=FALSE}
+png("G10MS.png", width = 700, height = 400)
 hist(G10MS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      xlim = c(0, 2.5e-10),  
      ylim = c(0, 40), col=rgb(0.75,0.1,0.3),
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(0,0.8,0))
+                        col = rgb(0,0.8,0), border = NA)
 )
 title(main = "Funkcja Griewanka 10D", col.main = rgb(0.75,0.1,0.3), line = 2)
 title(main = "MS", col.main = rgb(0,0.8,0), line = 1)
+
+invisible(dev.off())
+knitr::include_graphics("G10MS.png")
 ```
 
 ```{r echo=FALSE}
+png("G10PRS.png", width = 700, height = 400)
 hist(G10PRS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      xlim = c(10, 100), 
      ylim = c(0, 31),col=rgb(0.75,0.1,0.3),
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(1,0,0.83))
+                        col = rgb(1,0,0.83), border = NA)
      )
 title(main = "Funkcja Griewanka 10D", col.main = rgb(0.75,0.1,0.3), line = 2)
 title(main = "PRS", col.main = rgb(1,0,0.83), line = 1)
+
+invisible(dev.off())
+knitr::include_graphics("G10PRS.png")
+```
+
+```{r,echo=FALSE}
+png("G20MS.png", width = 700, height = 400)
 hist(G20MS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      xlim = c(0, 2e-10),  
      ylim = c(0, 26),col=rgb(0.75,0.1,0.3),
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(0,0.8,0))
+                        col = rgb(0,0.8,0), border = NA)
      )
 title(main = "Funkcja Griewanka 20D", col.main = rgb(0.75,0.1,0.3), line = 2)
 title(main = "MS", col.main = rgb(0,0.8,0), line = 1)
+
+invisible(dev.off())
+knitr::include_graphics("G20MS.png")
 ```
 
 
 ```{r echo=FALSE}
+png("G20PRS.png", width = 700, height = 400)
 hist(G20PRS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      xlim = c(100, 300),  
      ylim = c(0, 36),col=rgb(0.75,0.1,0.3),
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(1,0,0.83))
+                        col = rgb(1,0,0.83), border = NA)
      )
 title(main = "Funkcja Griewanka 20D", col.main = rgb(0.75,0.1,0.3), line = 2)
 title(main = "PRS", col.main = rgb(1,0,0.83), line = 1)
+
+invisible(dev.off())
+knitr::include_graphics("G20PRS.png")
+```
+
+```{r,echo=FALSE}
+png("S2MS.png", width = 700, height = 400)
 hist(S2MS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      xlim = c(-840,-700), ylim = c(0,103),col="blue",
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(0,0.8,0))
+                        col = rgb(0,0.8,0), border = NA)
      
      )
 title(main = "Funkcja Schwefela 2D", col.main = "blue", line = 2)
 title(main = "MS", col.main = rgb(0,0.8,0), line = 1)
+
+invisible(dev.off())
+knitr::include_graphics("S2MS.png")
 ```
 
 ```{r echo=FALSE}
+png("S2PRS.png", width = 700, height = 400)
 hist(S2PRS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      ylim = c(0,35), xlim = c(-850,-600),col="blue",
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(1,0,0.83))
+                        col = rgb(1,0,0.83), border = NA)
      )
 title(main = "Funkcja Schwefela 2D", col.main = "blue", line = 2)
 title(main = "PRS", col.main = rgb(1,0,0.83), line = 1)
+
+invisible(dev.off())
+knitr::include_graphics("S2PRS.png")
+```
+
+```{r,echo=FALSE}
+png("S10MS.png", width = 700, height = 400)
 hist(S10MS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      ylim = c(0,26), xlim = c(-3800,-2800),col="blue",
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(0,0.8,0))
+                        col = rgb(0,0.8,0), border = NA)
      )
 title(main = "Funkcja Schwefela 10D", col.main = "blue", line = 2)
 title(main = "MS", col.main = rgb(0,0.8,0), line = 1)
+
+invisible(dev.off())
+knitr::include_graphics("S10MS.png")
 ```
 
 ```{r echo=FALSE}
+png("S10PRS.png", width = 700, height = 400)
 hist(S10PRS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      xlim = c(-2800,-1600), ylim = c(0,28),col="blue",
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(1,0,0.83))
+                        col = rgb(1,0,0.83), border = NA)
      )
 title(main = "Funkcja Schwefela 10D", col.main = "blue", line = 2)
 title(main = "PRS", col.main = rgb(1,0,0.83), line = 1)
+
+invisible(dev.off())
+knitr::include_graphics("S10PRS.png")
+```
+
+```{r,echo=FALSE}
+png("S20MS.png", width = 700, height = 400)
 hist(S20MS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      xlim = c(-6800,-5400),ylim = c(0,31),col="blue",
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(0,0.8,0))
+                        col = rgb(0,0.8,0), border = NA)
      )
 title(main = "Funkcja Schwefela 20D", col.main = "blue", line = 2)
 title(main = "MS", col.main = rgb(0,0.8,0), line = 1)
+
+invisible(dev.off())
+knitr::include_graphics("S20MS.png")
 ```
 
 ```{r echo=FALSE}
+png("S20PRS.png", width = 700, height = 400)
 hist(S20PRS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      xlim = c(-4000,-2200), ylim = c(0,35),col="blue",
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(1,0,0.83))
+                        col = rgb(1,0,0.83), border = NA)
      )
 title(main = "Funkcja Schwefela 20D", col.main = "blue", line = 2)
 title(main = "PRS", col.main = rgb(1,0,0.83), line = 1)
+
+invisible(dev.off())
+knitr::include_graphics("S20PRS.png")
 ```
 
 # Wykresy pudełkowe
