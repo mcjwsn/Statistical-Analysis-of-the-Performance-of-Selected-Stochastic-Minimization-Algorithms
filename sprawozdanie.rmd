@@ -409,7 +409,9 @@ text(1:2, par("usr")[3] - 0.4,
      labels = c("MS", "PRS"), 
      col = c(rgb(0,0.8,0), rgb(1,0,0.83)), 
      xpd = TRUE)
-
+```
+\newpage
+```{r,echo=FALSE}
 bplot <- boxplot(G10MS, G10PRS, 
                 main = "Funkcja Griewanka, 10D",
                 col.main = rgb(0.75,0.1,0.3), 
@@ -422,7 +424,9 @@ text(1:2,
      labels = c("MS", "PRS"),  par("usr")[3] - 8, 
      col = c(rgb(0,0.8,0), rgb(1,0,0.83)), 
      xpd = TRUE)
-
+```
+\newpage
+```{r,echo=FALSE}
 bplot <- boxplot(G20MS, G20PRS, 
                 main = "Funkcja Griewanka, 20D",
                 col.main = rgb(0.75,0.1,0.3), 
@@ -435,7 +439,9 @@ text(1:2, par("usr")[3] - 23.5,
      labels = c("MS", "PRS"), 
      col = c(rgb(0,0.8,0), rgb(1,0,0.83)), 
      xpd = TRUE)
-
+```
+\newpage
+```{r,echo=FALSE}
 bplot <- boxplot(S2MS,S2PRS, 
                 main = "Funkcja Schwefela, 2D",
                 col.main = "blue", 
@@ -448,7 +454,9 @@ text(1:2, par("usr")[3] - 18.5,
      labels = c("MS", "PRS"), 
      col = c(rgb(0,0.8,0), rgb(1,0,0.83)), 
      xpd = TRUE)
-
+```
+\newpage
+```{r,echo=FALSE}
 bplot <- boxplot(S10MS,S10PRS, 
                 main = "Funkcja Schwefela, 10D",
                 col.main = "blue", 
@@ -461,7 +469,9 @@ text(1:2, par("usr")[3] - 155.5,
      labels = c("MS", "PRS"), 
      col = c(rgb(0,0.8,0), rgb(1,0,0.83)), 
      xpd = TRUE)
-
+```
+\newpage
+```{r,echo=FALSE}
 bplot <- boxplot(S20MS,S20PRS, 
                 main = "Funkcja Schwefela, 20D",
                 col.main = "blue", 
@@ -522,14 +532,11 @@ t.test(x = S20PRS, y = S20MS, paired = TRUE)
 
 \newpage
 
-## Wnioski końcowe:
+## Wnioski podsumowujące:
 
-### Wpływ wymiarowości:
+\textcolor{blue}{Funkcja Schwefela} wykazuje większe różnice między algorytmami niż funkcja \textcolor{purple}{Griewanka}. Dla \textcolor{purple}{funkcji Griewanka} w 2D nie zaobserwowano istotnej różnicy między algorytmami, ale
+dla wyższych wymiarów (10D, 20D) \textcolor{green}{MS} osiąga znacząco lepsze wyniki niż \textcolor{lightyellow}{PRS}.
+W przypadku \textcolor{blue}{funkcji Schwefela}, która charakteryzuje się trudnymi krajobrazami z wieloma lokalnymi minimami, metoda \textcolor{green}{MS} znacznie lepiej radzi sobie z eksplorowaniem przestrzeni poszukiwań i znajdowaniem głębszych minimów. Z kolei \textcolor{lightyellow}{PRS} wykazuje pewne trudności w bardziej złożonych przestrzeniach, co prowadzi do większych różnic w wynikach w wymiarach wyższych niż 2D.
 
-Wraz ze wzrostem liczby wymiarów, różnica między algorytmami staje się coraz bardziej wyraźna. Przewaga \textcolor{green}{MS} nad \textcolor{lightyellow}{PRS} rośnie wykładniczo wraz z wymiarowością.
-
-### Porównanie funkcji:
-
-\textcolor{blue}{Funkcja Schwefela} wykazuje większe różnice między algorytmami niż funkcja \textcolor{purple}{Griewanka}. Dla \textcolor{purple}{funkcji Griewanka} w 2D nie zaobserwowano istotnej różnicy między algorytmami.
-
-
+W \textcolor{blue}{funkcji Schwefela} dla 10D i 20D różnice między algorytmami stają się wyraźniejsze, ponieważ w tych wymiarach przestrzeń staje się bardziej złożona. Różnice w wynikach są statystycznie istotne, co wskazuje na większą efektywność \textcolor{green}{MS} w radzeniu sobie z trudnymi funkcjami optymalizacyjnymi w wyższych wymiarach. Wraz ze wzrostem liczby wymiarów, różnica między algorytmami staje się coraz bardziej wyraźna. Przewaga \textcolor{green}{MS} nad \textcolor{lightyellow}{PRS} rośnie wykładniczo wraz z wymiarowością.
+Testy statystyczne (t-test) oraz średnie różnice wskazują, że algorytmy różnią się w sposobie rozwiązywania problemu.
