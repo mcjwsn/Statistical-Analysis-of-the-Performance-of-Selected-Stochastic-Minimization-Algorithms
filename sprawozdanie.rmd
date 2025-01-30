@@ -85,7 +85,7 @@ Nasz wybór padł dokładnie na te funkcję ze względu na nich odmienność, tr
 
 gdzie przez $d$ rozumiemy ilość wymiarów. Funkcja jest zazwyczaj definiowa na hiperszceścianach $x_i \in [-500, 500]$, dla każdego $i = 1, \dots, d$.
 
-Minimum globalne $f(\mathbf{x^*}) = 0, \quad \text{dla } \mathbf{x^*} = (420.9687, \dots, 420.9687)$
+Minimum globalne $f(\mathbf{x^*}) = 418.9829*d, \quad \text{dla } \mathbf{x^*} = (420.9687, \dots, 420.9687)$
 
 \begin{figure}[h]
     \centering
