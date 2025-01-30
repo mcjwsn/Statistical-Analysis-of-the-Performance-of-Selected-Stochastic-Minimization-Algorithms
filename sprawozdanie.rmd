@@ -70,28 +70,13 @@ print(scalar_dimensional_functions)
 
 ### Do porównania wybraliśmy dwie funckje:
 
--   \textcolor{blue}{Schwefel}
 -   \textcolor{purple}{Griewank}
+-   \textcolor{blue}{Schwefel}
+
 
 Nasz wybór padł dokładnie na te funkcję ze względu na nich odmienność, trudność w optymalizacji oraz niebanalną impelmentację.
 
 \newpage
-
-### \textcolor{blue}{Funkcja Schwefela}
-
-\textcolor{blue}{Funckaj Schwefela} jest złożoną funkcją, posiadającą wiele minimów lokalnych. Wzór funkcji:
-
-\[f(\mathbf{x}) = \sum_{i=1}^{n} -x_i \sin \left( \sqrt{|x_i|} \right)\]
-
-gdzie przez $d$ rozumiemy ilość wymiarów. Funkcja jest zazwyczaj definiowa na hiperszceścianach $x_i \in [-500, 500]$, dla każdego $i = 1, \dots, d$.
-
-Minimum globalne $f(\mathbf{x^*}) = 418.9829*d, \quad \text{dla } \mathbf{x^*} = (420.9687, \dots, 420.9687)$
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\textwidth, height=0.5\textheight]{schwefel1.png}
-    \caption*{Reprezentacja \textcolor{blue}{funkcji Schwefela} w przestrzeni 3D}
-\end{figure}
 
 ### \textcolor{purple}{Funkcja Griewanka}
 
@@ -107,6 +92,22 @@ Minimum globalne $f(\mathbf{x^*}) = 0, \quad \text{ dla } \mathbf{x^*} = (0, \do
     \centering
     \includegraphics[width=0.5\textwidth, height=0.5\textheight]{griewank1.png}
     \caption*{Wizualizacja \textcolor{purple}{funkcji Griewanka} w 3D}
+\end{figure}
+
+### \textcolor{blue}{Funkcja Schwefela}
+
+\textcolor{blue}{Funckaj Schwefela} jest złożoną funkcją, posiadającą wiele minimów lokalnych. Wzór funkcji:
+
+\[f(\mathbf{x}) = \sum_{i=1}^{n} -x_i \sin \left( \sqrt{|x_i|} \right)\]
+
+gdzie przez $d$ rozumiemy ilość wymiarów. Funkcja jest zazwyczaj definiowa na hiperszceścianach $x_i \in [-500, 500]$, dla każdego $i = 1, \dots, d$.
+
+Minimum globalne $f(\mathbf{x^*}) = 418.9829*d, \quad \text{dla } \mathbf{x^*} = (420.9687, \dots, 420.9687)$
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth, height=0.5\textheight]{schwefel1.png}
+    \caption*{Reprezentacja \textcolor{blue}{funkcji Schwefela} w przestrzeni 3D}
 \end{figure}
 
 \newpage
@@ -136,188 +137,109 @@ S20MS <- as.vector(read.csv("./data/schwefel20Dms.csv"))$x
 S20PRS <- as.vector(read.csv("./data/schwefel20Dprs.csv"))$x
 ```
 
-## \textcolor{purple}{Funkcja Griewanka 2D}
 
-### \textcolor{green}{MS}
+## \textcolor{purple}{Funkcja Griewanka} 2D
 
--   średnia: `r mean(G2MS)`
--   Wartość najmniejsza: `r min(G2MS)`
--   Wartość największa: `r max(G2MS)`
--   Mediana: `r median(G2MS)`
--   Dolny kwartyl: `r quantile(G2MS, 0.25)`
--   Górny kwartyl: `r quantile(G2MS, 0.75)`
+| **Miara**               | **\textcolor{green}{MS}**   | **\textcolor{lightyellow}{PRS}**                     |
+|-------------------------|-----------------------------|-----------------------------|
+| Średnia                 | `r mean(G2MS)`              | `r mean(G2PRS)`             |
+| Wartość najmniejsza     | `r min(G2MS)`               | `r min(G2PRS)`              |
+| Wartość największa      | `r max(G2MS)`               | `r max(G2PRS)`              |
+| Mediana                 | `r median(G2MS)`            | `r median(G2PRS)`           |
+| Dolny kwartyl (25%)     | `r quantile(G2MS, 0.25)`    | `r quantile(G2PRS, 0.25)`   |
+| Górny kwartyl (75%)     | `r quantile(G2MS, 0.75)`    | `r quantile(G2PRS, 0.75)`   |
 
-### \textcolor{lightyellow}{PRS}
+## \textcolor{purple}{Funkcja Griewanka} 10D
 
--   średnia: `r mean(G2PRS)`
+| **Miara**               | **\textcolor{green}{MS}**    | **\textcolor{lightyellow}{PRS}**                     |
+|-------------------------|-----------------------------|-----------------------------|
+| Średnia                 | `r mean(G10MS)`             | `r mean(G10PRS)`            |
+| Wartość najmniejsza     | `r min(G10MS)`              | `r min(G10PRS)`             |
+| Wartość największa      | `r max(G10MS)`              | `r max(G10PRS)`             |
+| Mediana                 | `r median(G10MS)`           | `r median(G10PRS)`          |
+| Dolny kwartyl (25%)     | `r quantile(G10MS, 0.25)`   | `r quantile(G10PRS, 0.25)`  |
+| Górny kwartyl (75%)     | `r quantile(G10MS, 0.75)`   | `r quantile(G10PRS, 0.75)`  |
 
--   Wartość najmniejsza: `r min(G2PRS)`
+## \textcolor{purple}{Funkcja Griewanka} 20D
 
--   Wartość największa: `r max(G2PRS)`
+| **Miara**               | **\textcolor{green}{MS}**   | **\textcolor{lightyellow}{PRS}**                     |
+|-------------------------|-----------------------------|-----------------------------|
+| Średnia                 | `r mean(G20MS)`             | `r mean(G20PRS)`            |
+| Wartość najmniejsza     | `r min(G20MS)`              | `r min(G20PRS)`             |
+| Wartość największa      | `r max(G20MS)`              | `r max(G20PRS)`             |
+| Mediana                 | `r median(G20MS)`           | `r median(G20PRS)`          |
+| Dolny kwartyl (25%)     | `r quantile(G20MS, 0.25)`   | `r quantile(G20PRS, 0.25)`  |
+| Górny kwartyl (75%)     | `r quantile(G20MS, 0.75)`   | `r quantile(G20PRS, 0.75)`  |
 
--   Mediana: `r median(G2PRS)`
-
--   Dolny kwartyl: `r quantile(G2PRS, 0.25)`
-
--   Górny kwartyl: `r quantile(G2PRS, 0.75)`
-
-## \textcolor{purple}{Funkcja Griewanka 10D}
-
-### \textcolor{green}{MS}
-
--   średnia: `r mean(G10MS)`
--   Wartość najmniejsza: `r min(G10MS)`
--   Wartość największa: `r max(G10MS)`
--   Mediana: `r median(G10MS)`
--   Dolny kwartyl: `r quantile(G10MS, 0.25)`
--   Górny kwartyl: `r quantile(G10MS, 0.75)`
 
 \newpage
+## \textcolor{blue}{Funkcja Schwefela} 2D
 
-### \textcolor{lightyellow}{PRS}
+| **Miara**               | **\textcolor{green}{MS}**   | **\textcolor{lightyellow}{PRS}**                     |
+|-------------------------|-----------------------------|-----------------------------|
+| Średnia                 | `r mean(S2MS)`              | `r mean(S2PRS)`             |
+| Wartość najmniejsza     | `r min(S2MS)`               | `r min(S2PRS)`              |
+| Wartość największa      | `r max(S2MS)`               | `r max(S2PRS)`              |
+| Mediana                 | `r median(S2MS)`            | `r median(S2PRS)`           |
+| Dolny kwartyl (25%)     | `r quantile(S2MS, 0.25)`    | `r quantile(S2PRS, 0.25)`   |
+| Górny kwartyl (75%)     | `r quantile(S2MS, 0.75)`    | `r quantile(S2PRS, 0.75)`   |
 
--   średnia: `r mean(G10PRS)`
+## \textcolor{blue}{Funkcja Schwefela} 10D
 
--   Wartość najmniejsza: `r min(G10PRS)`
+| **Miara**               | **\textcolor{green}{MS}**   | **\textcolor{lightyellow}{PRS}**                     |
+|-------------------------|-----------------------------|-----------------------------|
+| Średnia                 | `r mean(S10MS)`             | `r mean(S10PRS)`            |
+| Wartość najmniejsza     | `r min(S10MS)`              | `r min(S10PRS)`             |
+| Wartość największa      | `r max(S10MS)`              | `r max(S10PRS)`             |
+| Mediana                 | `r median(S10MS)`           | `r median(S10PRS)`          |
+| Dolny kwartyl (25%)     | `r quantile(S10MS, 0.25)`   | `r quantile(S10PRS, 0.25)`  |
+| Górny kwartyl (75%)     | `r quantile(S10MS, 0.75)`   | `r quantile(S10PRS, 0.75)`  |
 
--   Wartość największa: `r max(G10PRS)`
+## \textcolor{blue}{Funkcja Schwefela} 20D
 
--   Mediana: `r median(G10PRS)`
-
--   Dolny kwartyl: `r quantile(G10PRS, 0.25)`
-
--   Górny kwartyl: `r quantile(G10PRS, 0.75)`
-
-## \textcolor{purple}{Funkcja Griewanka 20D}
-
-### \textcolor{green}{MS}
-
--   średnia: `r mean(G20MS)`
--   Wartość najmniejsza: `r min(G20MS)`
--   Wartość największa: `r max(G20MS)`
--   Mediana: `r median(G20MS)`
--   Dolny kwartyl: `r quantile(G20MS, 0.25)`
--   Górny kwartyl: `r quantile(G20MS, 0.75)`
-
-### \textcolor{lightyellow}{PRS}
-
--   średnia: `r mean(G20PRS)`
-
--   Wartość najmniejsza: `r min(G20PRS)`
-
--   Wartość największa: `r max(G20PRS)`
-
--   Mediana: `r median(G20PRS)`
-
--   Dolny kwartyl: `r quantile(G20PRS, 0.25)`
-
--   Górny kwartyl: `r quantile(G20PRS, 0.75)`
-
-## \textcolor{blue}{Funkcja Schwefela 2D}
-
-### \textcolor{green}{MS}
-
--   średnia: `r mean(S2MS)`
--   Wartość najmniejsza: `r min(S2MS)`
--   Wartość największa: `r max(S2MS)`
--   Mediana: `r median(S2MS)`
--   Dolny kwartyl: `r quantile(S2MS, 0.25)`
--   Górny kwartyl: `r quantile(S2MS, 0.75)`
-
-### \textcolor{lightyellow}{PRS}
-
--   średnia: `r mean(S2PRS)`
-
--   Wartość najmniejsza: `r min(S2PRS)`
-
--   Wartość największa: `r max(S2PRS)`
-
--   Mediana: `r median(S2PRS)`
-
--   Dolny kwartyl: `r quantile(S2PRS, 0.25)`
-
--   Górny kwartyl: `r quantile(S2PRS, 0.75)`
-
-## \textcolor{blue}{Funkcja Schwefela 10D}
-
-### \textcolor{green}{MS}
-
--   średnia: `r mean(S10MS)`
--   Wartość najmniejsza: `r min(S10MS)`
--   Wartość największa: `r max(S10MS)`
--   Mediana: `r median(S10MS)`
--   Dolny kwartyl: `r quantile(S10MS, 0.25)`
--   Górny kwartyl: `r quantile(S10MS, 0.75)`
-
-### \textcolor{lightyellow}{PRS}
-
--   średnia: `r mean(S10PRS)`
-
--   Wartość najmniejsza: `r min(S10PRS)`
-
--   Wartość największa: `r max(S10PRS)`
-
--   Mediana: `r median(S10PRS)`
-
--   Dolny kwartyl: `r quantile(S10PRS, 0.25)`
-
--   Górny kwartyl: `r quantile(S10PRS, 0.75)`
-
-## \textcolor{blue}{Funkcja Schwefela 20D}
-
-### \textcolor{green}{MS}
-
--   średnia: `r mean(S20MS)`
--   Wartość najmniejsza: `r min(S20MS)`
--   Wartość największa: `r max(S20MS)`
--   Mediana: `r median(S20MS)`
--   Dolny kwartyl: `r quantile(S20MS, 0.25)`
--   Górny kwartyl: `r quantile(S20MS, 0.75)`
-
-### \textcolor{lightyellow}{PRS}
-
--   średnia: `r mean(S20PRS)`
-
--   Wartość najmniejsza: `r min(S20PRS)`
-
--   Wartość największa: `r max(S20PRS)`
-
--   Mediana: `r median(S20PRS)`
-
--   Dolny kwartyl: `r quantile(S20PRS, 0.25)`
-
--   Górny kwartyl: `r quantile(S20PRS, 0.75)`
-
-## Wyniki na wykresach
+| **Miara**               | **\textcolor{green}{MS}**   | **\textcolor{lightyellow}{PRS}**                     |
+|-------------------------|-----------------------------|-----------------------------|
+| Średnia                 | `r mean(S20MS)`             | `r mean(S20PRS)`            |
+| Wartość najmniejsza     | `r min(S20MS)`              | `r min(S20PRS)`             |
+| Wartość największa      | `r max(S20MS)`              | `r max(S20PRS)`             |
+| Mediana                 | `r median(S20MS)`           | `r median(S20PRS)`          |
+| Dolny kwartyl (25%)     | `r quantile(S20MS, 0.25)`   | `r quantile(S20PRS, 0.25)`  |
+| Górny kwartyl (75%)     | `r quantile(S20MS, 0.75)`   | `r quantile(S20PRS, 0.75)`  |`
 
 ```{r echo=FALSE}
 hist(G2MS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
-     ylim = c(0,70), xlim = c(0,5), col=rgb(0.75,0.1,0.3),
+     ylim = c(0,62), xlim = c(0,5), col=rgb(0.75,0.1,0.3),
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(0,0.8,0), border = NA),
+                        col = rgb(0,0.8,0))
      )
 title(main = "Funkcja Griewanka 2D", col.main = rgb(0.75,0.1,0.3), line = 2)
 title(main = "MS", col.main = rgb(0,0.8,0), line = 1)
+
+
+
 ```
 
 ```{r, echo=FALSE}
 
+# Pierwszy histogram
 hist(G2PRS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
-     ylim = c(0,30), xlim = c(0,2),col=rgb(0.75,0.1,0.3),
+     ylim = c(0,30), xlim = c(0,2), col=rgb(0.75,0.1,0.3),
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(1,0,0.83), border = NA)
-     )
+                        col = rgb(1,0,0.83))
+)
 title(main = "Funkcja Griewanka 2D", col.main = rgb(0.75,0.1,0.3), line = 2)
 title(main = "PRS", col.main = rgb(1,0,0.83), line = 1)
+
+# Drugi histogram
 hist(G10MS, main="", 
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      xlim = c(0, 2.5e-10),  
-     ylim = c(0, 40),  ,col=rgb(0.75,0.1,0.3),
-      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(0,0.8,0), border = NA)
-     )
+     ylim = c(0, 40), col=rgb(0.75,0.1,0.3),
+     panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
+                        col = rgb(0,0.8,0))
+)
 title(main = "Funkcja Griewanka 10D", col.main = rgb(0.75,0.1,0.3), line = 2)
 title(main = "MS", col.main = rgb(0,0.8,0), line = 1)
 ```
@@ -328,7 +250,7 @@ hist(G10PRS, main="",
      xlim = c(10, 100), 
      ylim = c(0, 31),col=rgb(0.75,0.1,0.3),
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(1,0,0.83), border = NA)
+                        col = rgb(1,0,0.83))
      )
 title(main = "Funkcja Griewanka 10D", col.main = rgb(0.75,0.1,0.3), line = 2)
 title(main = "PRS", col.main = rgb(1,0,0.83), line = 1)
@@ -337,7 +259,7 @@ hist(G20MS, main="",
      xlim = c(0, 2e-10),  
      ylim = c(0, 26),col=rgb(0.75,0.1,0.3),
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(0,0.8,0), border = NA)
+                        col = rgb(0,0.8,0))
      )
 title(main = "Funkcja Griewanka 20D", col.main = rgb(0.75,0.1,0.3), line = 2)
 title(main = "MS", col.main = rgb(0,0.8,0), line = 1)
@@ -350,7 +272,7 @@ hist(G20PRS, main="",
      xlim = c(100, 300),  
      ylim = c(0, 36),col=rgb(0.75,0.1,0.3),
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(1,0,0.83), border = NA)
+                        col = rgb(1,0,0.83))
      )
 title(main = "Funkcja Griewanka 20D", col.main = rgb(0.75,0.1,0.3), line = 2)
 title(main = "PRS", col.main = rgb(1,0,0.83), line = 1)
@@ -358,7 +280,7 @@ hist(S2MS, main="",
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      xlim = c(-840,-700), ylim = c(0,103),col="blue",
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(0,0.8,0), border = NA)
+                        col = rgb(0,0.8,0))
      
      )
 title(main = "Funkcja Schwefela 2D", col.main = "blue", line = 2)
@@ -370,7 +292,7 @@ hist(S2PRS, main="",
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      ylim = c(0,35), xlim = c(-850,-600),col="blue",
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(1,0,0.83), border = NA)
+                        col = rgb(1,0,0.83))
      )
 title(main = "Funkcja Schwefela 2D", col.main = "blue", line = 2)
 title(main = "PRS", col.main = rgb(1,0,0.83), line = 1)
@@ -378,7 +300,7 @@ hist(S10MS, main="",
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      ylim = c(0,26), xlim = c(-3800,-2800),col="blue",
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(0,0.8,0), border = NA)
+                        col = rgb(0,0.8,0))
      )
 title(main = "Funkcja Schwefela 10D", col.main = "blue", line = 2)
 title(main = "MS", col.main = rgb(0,0.8,0), line = 1)
@@ -389,7 +311,7 @@ hist(S10PRS, main="",
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      xlim = c(-2800,-1600), ylim = c(0,28),col="blue",
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(1,0,0.83), border = NA)
+                        col = rgb(1,0,0.83))
      )
 title(main = "Funkcja Schwefela 10D", col.main = "blue", line = 2)
 title(main = "PRS", col.main = rgb(1,0,0.83), line = 1)
@@ -397,7 +319,7 @@ hist(S20MS, main="",
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      xlim = c(-6800,-5400),ylim = c(0,31),col="blue",
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(0,0.8,0), border = NA)
+                        col = rgb(0,0.8,0))
      )
 title(main = "Funkcja Schwefela 20D", col.main = "blue", line = 2)
 title(main = "MS", col.main = rgb(0,0.8,0), line = 1)
@@ -408,7 +330,7 @@ hist(S20PRS, main="",
      xlab = "Znaleziona wartość minimum", ylab = "Wystąpienia", labels = TRUE,
      xlim = c(-4000,-2200), ylim = c(0,35),col="blue",
      panel.first = rect(par("usr")[1], par("usr")[3], par("usr")[2], par("usr")[4], 
-                        col = rgb(1,0,0.83), border = NA)
+                        col = rgb(1,0,0.83))
      )
 title(main = "Funkcja Schwefela 20D", col.main = "blue", line = 2)
 title(main = "PRS", col.main = rgb(1,0,0.83), line = 1)
@@ -551,3 +473,5 @@ Wraz ze wzrostem liczby wymiarów, różnica między algorytmami staje się cora
 ### Porównanie funkcji:
 
 \textcolor{blue}{Funkcja Schwefela} wykazuje większe różnice między algorytmami niż funkcja \textcolor{purple}{Griewanka}. Dla \textcolor{purple}{funkcji Griewanka} w 2D nie zaobserwowano istotnej różnicy między algorytmami.
+
+
