@@ -90,7 +90,7 @@ Minimum globalne $f(\mathbf{x^*}) = 0, \quad \text{ dla } \mathbf{x^*} = (0, \do
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth, height=0.5\textheight]{griewank1.png}
+    \includegraphics[width=0.4\textwidth, height=0.4\textheight]{griewank1.png}
     \caption*{Wizualizacja \textcolor{purple}{funkcji Griewanka} w 3D}
 \end{figure}
 
@@ -106,7 +106,7 @@ Minimum globalne $f(\mathbf{x^*}) = 418.9829*d, \quad \text{dla } \mathbf{x^*} =
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth, height=0.5\textheight]{schwefel1.png}
+    \includegraphics[width=0.4\textwidth, height=0.4\textheight]{schwefel1.png}
     \caption*{Reprezentacja \textcolor{blue}{funkcji Schwefela} w przestrzeni 3D}
 \end{figure}
 
