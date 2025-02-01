@@ -4,15 +4,15 @@ Projekt polega na prostym opracowaniu statystycznym wyników porównania
 działania wybranych algorytmów minimalizacji stochastycznej.
 Zdecydowaliśmy się do porównania użyć następujących algorytmów:
 
-#### - 
+#### - Poszukiwanie przypadkowe (Pure Random Search, PRS)
 
-#### - 
+#### - Metoda wielokrotnego startu (multi-start, MS)
 
 ## Opis algorytmów
 
-### 
+### Poszukiwanie przypadkowe (Pure Random Search, PRS)
 
-polega na losowym przeszukiwaniu przestrzeni rozwiązań, w której
+PRS polega na losowym przeszukiwaniu przestrzeni rozwiązań, w której
 minimalizowana funkcja jest zdefiniowana. Działa w następujący sposób:
 
 1.  **Losowanie punktów**: Losujemy kolejne punkty w przestrzeni
@@ -37,7 +37,7 @@ minimalizowana funkcja jest zdefiniowana. Działa w następujący sposób:
 
 ------------------------------------------------------------------------
 
-### 
+### Metoda wielokrotnego startu (Multi-Start, MS)
 
 Algorytm łączy losowe przeszukiwanie przestrzeni z metodami
 optymalizacji lokalnej. Jego kroki są następujące:
@@ -76,13 +76,14 @@ algorytm, który znajdywał dostępne funckje o wymaganych parametrach:
 
 ### Do porównania wybraliśmy dwie funckje:
 
--   
--   
+-   Griewank
+-   Schwefel
+
 
 Nasz wybór padł dokładnie na te funkcję ze względu na nich odmienność,
 trudność w optymalizacji oraz niebanalną impelmentację.
 
-### 
+### Funkcja Griewanka
 
 ma wiele szeroko rozpowszechnionych minimów lokalnych, które są
 regularnie dystrybuowane. Wzór funkcji:
@@ -96,7 +97,7 @@ każdego *i* = 1, …, *d*.
 Minimum globalne
 *f*(**x**<sup>**\***</sup>) = 0,   dla **x**<sup>**\***</sup> = (0, …, 0)
 
-### 
+### Funkcja Schwefela
 
 jest złożoną funkcją, posiadającą wiele minimów lokalnych. Wzór funkcji:
 
@@ -119,7 +120,7 @@ Minimum globalne
 
 # WYNIKI
 
-##  2D
+## Funkcja Griewanka 2D
 
 <table>
 <colgroup>
@@ -168,7 +169,7 @@ Minimum globalne
 </tbody>
 </table>
 
-##  10D
+## Funkcja Griewanka 10D
 
 <table>
 <colgroup>
@@ -217,7 +218,7 @@ Minimum globalne
 </tbody>
 </table>
 
-##  20D
+## Funkcja Griewanka 20D
 
 <table>
 <colgroup>
@@ -266,7 +267,7 @@ Minimum globalne
 </tbody>
 </table>
 
-##  2D
+## Funkcja Schwefela 2D
 
 <table>
 <colgroup>
@@ -315,7 +316,7 @@ Minimum globalne
 </tbody>
 </table>
 
-##  10D
+## Funkcja Schwefela 10D
 
 <table>
 <colgroup>
@@ -364,7 +365,7 @@ Minimum globalne
 </tbody>
 </table>
 
-##  20D
+## Funkcja Schwefela 20D
 
 <table>
 <colgroup>
@@ -450,7 +451,7 @@ Minimum globalne
 
 Dla hipotezy zerowej twierdzącej, że średnie są sobie równe
 
-#### 
+#### Funkcja Griewanka, 2D
 
     ## 
     ##  Paired t-test
@@ -464,7 +465,7 @@ Dla hipotezy zerowej twierdzącej, że średnie są sobie równe
     ## mean difference 
     ##      0.03786802
 
-#### 
+#### Funkcja Griewanka, 10D
 
     ## 
     ##  Paired t-test
@@ -478,7 +479,7 @@ Dla hipotezy zerowej twierdzącej, że średnie są sobie równe
     ## mean difference 
     ##        51.70917
 
-#### 
+#### Funkcja Griewanka, 20D
 
     ## 
     ##  Paired t-test
@@ -492,7 +493,7 @@ Dla hipotezy zerowej twierdzącej, że średnie są sobie równe
     ## mean difference 
     ##        222.7745
 
-#### 
+#### Funkcja Schwefela, 2D
 
     ## 
     ##  Paired t-test
@@ -506,7 +507,7 @@ Dla hipotezy zerowej twierdzącej, że średnie są sobie równe
     ## mean difference 
     ##        39.58952
 
-#### 
+#### Funkcja Schwefela, 10D
 
     ## 
     ##  Paired t-test
@@ -520,7 +521,7 @@ Dla hipotezy zerowej twierdzącej, że średnie są sobie równe
     ## mean difference 
     ##        1271.899
 
-#### 
+#### Funkcja Schwefela, 20D
 
     ## 
     ##  Paired t-test
@@ -536,20 +537,20 @@ Dla hipotezy zerowej twierdzącej, że średnie są sobie równe
 
 ## Wnioski podsumowujące:
 
-wykazuje większe różnice między algorytmami niż funkcja . Dla w 2D nie
+Funkcja Schwefela wykazuje większe różnice między algorytmami niż funkcja Griewanka. Dla funkcji Griewanka w 2D nie
 zaobserwowano istotnej różnicy między algorytmami, ale dla wyższych
-wymiarów (10D, 20D) osiąga znacząco lepsze wyniki niż . W przypadku ,
+wymiarów (10D, 20D) MS osiąga znacząco lepsze wyniki niż PRS . W przypadku funkcji Schwefela,
 która charakteryzuje się trudnymi krajobrazami z wieloma lokalnymi
-minimami, metoda znacznie lepiej radzi sobie z eksplorowaniem
-przestrzeni poszukiwań i znajdowaniem głębszych minimów. Z kolei
+minimami, metoda MS znacznie lepiej radzi sobie z eksplorowaniem
+przestrzeni poszukiwań i znajdowaniem głębszych minimów. Z kolei PRS
 wykazuje pewne trudności w bardziej złożonych przestrzeniach, co
 prowadzi do większych różnic w wynikach w wymiarach wyższych niż 2D.
 
-W dla 10D i 20D różnice między algorytmami stają się wyraźniejsze,
+W funkcji Schwefela dla 10D i 20D różnice między algorytmami stają się wyraźniejsze,
 ponieważ w tych wymiarach przestrzeń staje się bardziej złożona. Różnice
 w wynikach są statystycznie istotne, co wskazuje na większą efektywność
 w radzeniu sobie z trudnymi funkcjami optymalizacyjnymi w wyższych
 wymiarach. Wraz ze wzrostem liczby wymiarów, różnica między algorytmami
-staje się coraz bardziej wyraźna. Przewaga nad rośnie wykładniczo wraz z
+staje się coraz bardziej wyraźna. Przewaga MS nad PRS rośnie wykładniczo wraz z
 wymiarowością. Testy statystyczne (t-test) oraz średnie różnice
 wskazują, że algorytmy różnią się w sposobie rozwiązywania problemu.
