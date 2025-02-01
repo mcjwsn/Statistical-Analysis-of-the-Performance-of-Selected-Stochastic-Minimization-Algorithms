@@ -438,15 +438,6 @@ Minimum globalne
 
 ![](S20PRS.png)
 
-# Wykresy pudełkowe
-
-![](sprawozdanie_files/figure-markdown_strict/unnamed-chunk-14-1.png)
-![](sprawozdanie_files/figure-markdown_strict/unnamed-chunk-15-1.png)
-![](sprawozdanie_files/figure-markdown_strict/unnamed-chunk-16-1.png)
-![](sprawozdanie_files/figure-markdown_strict/unnamed-chunk-17-1.png)
-![](sprawozdanie_files/figure-markdown_strict/unnamed-chunk-18-1.png)
-![](sprawozdanie_files/figure-markdown_strict/unnamed-chunk-19-1.png)
-
 ## T testy
 
 Dla hipotezy zerowej twierdzącej, że średnie są sobie równe
