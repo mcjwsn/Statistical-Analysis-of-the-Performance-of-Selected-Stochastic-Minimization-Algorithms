@@ -545,3 +545,5 @@ wymiarach. Wraz ze wzrostem liczby wymiarów, różnica między algorytmami
 staje się coraz bardziej wyraźna. Przewaga MS nad PRS rośnie wykładniczo wraz z
 wymiarowością. Testy statystyczne (t-test) oraz średnie różnice
 wskazują, że algorytmy różnią się w sposobie rozwiązywania problemu.
+
+Lepsza wersja sprawozdania dostępna jako sprawozdanie.pdf lub sprawozdanie.rmd w repozytorium
