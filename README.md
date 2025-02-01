@@ -414,29 +414,29 @@ Minimum globalne
 </tbody>
 </table>
 
-![](G2MS.png)
+![](graphics/G2MS.png)
 
-![](G2PRS.png)
+![](graphics/G2PRS.png)
 
-![](G10MS.png)
+![](graphics/G10MS.png)
 
-![](G10PRS.png)
+![](graphics/G10PRS.png)
 
-![](G20MS.png)
+![](graphics/G20MS.png)
 
-![](G20PRS.png)
+![](graphics/G20PRS.png)
 
-![](S2MS.png)
+![](graphics/S2MS.png)
 
-![](S2PRS.png)
+![](graphics/S2PRS.png)
 
-![](S10MS.png)
+![](graphics/S10MS.png)
 
-![](S10PRS.png)
+![](graphics/S10PRS.png)
 
-![](S20MS.png)
+![](graphics/S20MS.png)
 
-![](S20PRS.png)
+![](graphics/S20PRS.png)
 
 ## T testy
 
