@@ -11,6 +11,11 @@ header-includes: \usepackage{xcolor} \definecolor{lightyellow}{rgb}{30.0, 0.0, 0
   \definecolor{green}{rgb}{0, 0.8, 0} \usepackage{caption}
 ---
 
+
+```{r setup, include=FALSE}
+knitr::opts_knit$set(output = "README.md")
+```
+
 ## Cel projektu
 
 Projekt polega na prostym opracowaniu statystycznym wyników porównania działania wybranych algorytmów minimalizacji stochastycznej. Zdecydowaliśmy się do porównania użyć następujących algorytmów:
