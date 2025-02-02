@@ -97,6 +97,8 @@ każdego *i* = 1, …, *d*.
 Minimum globalne
 *f*(**x**<sup>**\***</sup>) = 0,   dla **x**<sup>**\***</sup> = (0, …, 0)
 
+![](graphics/Griewank2.png)
+
 ### Funkcja Schwefela
 
 jest złożoną funkcją, posiadającą wiele minimów lokalnych. Wzór funkcji:
@@ -109,6 +111,8 @@ każdego *i* = 1, …, *d*.
 
 Minimum globalne
 *f*(**x**<sup>**\***</sup>) = 418.9829 \* *d*,  dla **x**<sup>**\***</sup> = (420.9687, …, 420.9687)
+
+![](graphics/schwefel2.png)
 
 ## Specyfikacja sprzętu
 
