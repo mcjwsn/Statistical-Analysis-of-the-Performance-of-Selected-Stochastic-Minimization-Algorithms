@@ -97,7 +97,8 @@ każdego *i* = 1, …, *d*.
 Minimum globalne
 *f*(**x**<sup>**\***</sup>) = 0,   dla **x**<sup>**\***</sup> = (0, …, 0)
 
-![](graphics/Griewank2.png)
+<img src="graphics/griewank1.png" alt="Wykres funkcji Griewanka" width="500" height="200" style="display: flex; justify-content: center;">
+
 
 ### Funkcja Schwefela
 
@@ -112,7 +113,8 @@ każdego *i* = 1, …, *d*.
 Minimum globalne
 *f*(**x**<sup>**\***</sup>) = 418.9829 \* *d*,  dla **x**<sup>**\***</sup> = (420.9687, …, 420.9687)
 
-![](graphics/schwefel2.png)
+<img src="graphics/Schwefel1.png" alt="Wykres funkcji Schwefela" width="500" height="200" style="display: flex; justify-content: center;">
+
 
 ## Specyfikacja sprzętu
 
