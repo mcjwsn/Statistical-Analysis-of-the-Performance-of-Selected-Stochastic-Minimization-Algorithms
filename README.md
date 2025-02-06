@@ -555,6 +555,7 @@ wskazują, że algorytmy różnią się w sposobie rozwiązywania problemu.
 
 ## Autorzy 
 Kacper Feliks [Kacperon](https://github.com/Kacperon)
+
 Maciej Wiśniewski [mcjwsn](https://github.com/mcjwsn)
 
 Lepsza wersja sprawozdania dostępna jako sprawozdanie.pdf lub sprawozdanie.rmd w repozytorium
