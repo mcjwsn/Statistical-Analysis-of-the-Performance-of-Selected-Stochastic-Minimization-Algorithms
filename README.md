@@ -552,4 +552,9 @@ staje się coraz bardziej wyraźna. Przewaga MS nad PRS rośnie wykładniczo wra
 wymiarowością. Testy statystyczne (t-test) oraz średnie różnice
 wskazują, że algorytmy różnią się w sposobie rozwiązywania problemu.
 
+
+## Autorzy 
+Kacper Feliks [Kacperon](https://github.com/Kacperon)
+Maciej Wiśniewski [mcjwsn](https://github.com/mcjwsn)
+
 Lepsza wersja sprawozdania dostępna jako sprawozdanie.pdf lub sprawozdanie.rmd w repozytorium
